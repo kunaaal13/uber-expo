@@ -1,8 +1,8 @@
-import { useAuth, useUser } from '@clerk/clerk-expo';
+import { useAuth } from '@clerk/clerk-expo';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -13,12 +13,11 @@ function Welcome() {
   // This screen is shown when the app is first loaded, so it should be redirected to the login screen or the home screen if the user is already logged in or not after 10 seconds.
   const router = useRouter();
   const { sessionId, isLoaded } = useAuth();
-  console.log({ sessionId, isLoaded });
 
   useEffect(() => {
     setTimeout(() => {
       if (isLoaded && sessionId) {
-        router.push('/home');
+        router.push('/(tabs)/');
       } else if (isLoaded) {
         router.push('/auth/');
       }

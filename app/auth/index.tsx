@@ -1,7 +1,7 @@
 import { useOAuth } from '@clerk/clerk-expo';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import { Alert, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import { Colors } from 'utils/colors';
 
@@ -16,8 +16,8 @@ function Page() {
       const { createdSessionId, setActive } = await startOAuthFlow();
 
       if (createdSessionId) {
-        setActive!({ session: createdSessionId });
         router.push('/home');
+        setActive!({ session: createdSessionId });
       }
     } catch (err) {
       console.error('OAuth error', err);
