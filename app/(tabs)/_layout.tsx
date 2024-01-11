@@ -43,6 +43,7 @@ function Layout() {
       <Tabs.Screen
         name="activity"
         options={{
+          headerShown: false,
           tabBarLabel: 'Activity',
           tabBarIcon: ({ size, color }) => <Ionicons name="albums" size={20} color={color} />,
         }}
@@ -51,6 +52,7 @@ function Layout() {
       <Tabs.Screen
         name="account"
         options={{
+          headerShown: false,
           tabBarLabel: 'Profile',
           tabBarIcon: ({ size, color }) => <Ionicons name="ios-person" size={20} color={color} />,
         }}
