@@ -95,6 +95,13 @@ function LayoutComponent() {
           headerShown: false,
         }}
       />
+
+      <Stack.Screen
+        name="(ride)"
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 }

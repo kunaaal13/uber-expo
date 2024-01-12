@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import ServicesGrid from 'components/home/services-grid';
 import { Image } from 'expo-image';
+import { router } from 'expo-router';
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 
@@ -38,7 +39,9 @@ function Page() {
 
         <ServicesGrid />
 
-        <TouchableOpacity className="flex-row items-center justify-between rounded-full w-full bg-uber-lightGray p-3">
+        <TouchableOpacity
+          onPress={() => router.push('/(ride)/trip-selection')}
+          className="flex-row items-center justify-between rounded-full w-full bg-uber-lightGray p-3">
           <View className="flex-row items-center space-x-3 w-1/2">
             <Ionicons name="search" size={18} className="text-uber-dark" />
             <Text
