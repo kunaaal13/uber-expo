@@ -5,26 +5,24 @@ import { TouchableOpacity } from 'react-native';
 
 function Layout() {
   return (
-    <LocationProvider>
-      <Stack>
-        <Stack.Screen
-          name="trip-selection"
-          options={{
-            headerTitle: 'Plan your trip',
-            headerTitleStyle: {
-              fontFamily: 'uber-medium',
-              fontSize: 18,
-            },
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => router.push('/(tabs)/')}>
-                <Ionicons name="chevron-back" size={20} />
-              </TouchableOpacity>
-            ),
-            headerBlurEffect: 'systemMaterial',
-          }}
-        />
-      </Stack>
-    </LocationProvider>
+    <Stack>
+      <Stack.Screen
+        name="trip-selection"
+        options={{
+          headerTitle: 'Plan your trip',
+          headerTitleStyle: {
+            fontFamily: 'uber-medium',
+            fontSize: 18,
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.push('/(tabs)/')}>
+              <Ionicons name="chevron-back" size={20} />
+            </TouchableOpacity>
+          ),
+          headerBlurEffect: 'systemMaterial',
+        }}
+      />
+    </Stack>
   );
 }
 

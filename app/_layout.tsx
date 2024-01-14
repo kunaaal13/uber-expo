@@ -1,4 +1,5 @@
 import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack, usePathname, useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
@@ -30,6 +31,9 @@ const tokenCache = {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+// Create a client
+const queryClient = new QueryClient();
+
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     'uber-regular': require('../assets/fonts/uber-regular.ttf'),
@@ -54,9 +58,11 @@ export default function RootLayout() {
   }
 
   return (
-    <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY!} tokenCache={tokenCache}>
-      <LayoutComponent />
-    </ClerkProvider>
+    <QueryClientProvider client={queryClient}>
+      <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY!} tokenCache={tokenCache}>
+        <LayoutComponent />
+      </ClerkProvider>
+    </QueryClientProvider>
   );
 }
 
